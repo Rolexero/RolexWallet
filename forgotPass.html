@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RolexWallet</title>
+    <link rel="shortcut icon" href="./image/Wallet_perspective_matte.png" type="image/x-icon">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <style>
+     .form-gap {
+    padding-top: 70px;
+}
+ </style>
+</head>
+<body>
+    <div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center">
+                    <img src="/javascript beginner/bankApp/image/Wallet_perspective_matte.png" alt="" width="160px" height="170px" style="border-radius: 50%; margin: auto; display: block; margin-top: 30px;" >
+                  <h2 class="text-center">Forgot Password?</h2>
+                  <p>You can reset your password here.</p>
+                  <div class="panel-body">
+    
+                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+    
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                          <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                      </div>
+                      
+                      <input type="hidden" class="hide" name="token" id="token" value=""> 
+                    </form>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+  
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {    apiKey: "AIzaSyBmVZsOwB6cwTg-kCK3fwLLZXRYnIaaOT4",
+ authDomain: "fir-auth-64e80.firebaseapp.com",
+ projectId: "fir-auth-64e80",
+ storageBucket: "fir-auth-64e80.appspot.com",
+ messagingSenderId: "365621674659",
+ appId: "1:365621674659:web:7e4db66b2397f769aff516",
+ measurementId: "G-CWJ1P156VE"
+};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+ //    firebase.analytics();
+ //    const dB = firebase.firestore();
+ const auth = firebase.auth();
+ const database = firebase.database();
+
+
+ const formId = document.querySelector('#register-form');
+ formId.addEventListener('submit', (e)=>{
+     e.preventDefault();
+    console.log(formId.email.value);
+    auth.useDeviceLanguage();
+    auth.sendPasswordResetEmail(formId.email.value).then((result) => {
+        console.log('password reset email sent');
+        formId.reset();
+    }).catch((err) => {
+        return console.error(err);
+    });
+ })
+ </script>
+</body>
+</html>
