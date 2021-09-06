@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/personal project/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./toastr/toastr.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        html,body{
+            display: grid;
+            height: 100%;
+            width: 100%;
+            place-items: center;
+            background: #f2f2f2;
+            background: -webkit-linear-gradient(left, #4e3c5f, #aea8d3);
+        }
+
+        #toast-container > .toast-error { background-color: #BD362F; }
+        #toast-container > .toast-success { background-color: #04701f; }
+
+
+        .wrapper{
+            overflow: hidden;
+            max-width: 390px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper .title-text{
+            display: flex;
+            width: 200%;
+        }
+
+        .wrapper .title-text .title{
+            width: 50%;
+            font-size: 35%;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.68, 0.55, 0.365, 0.55);
+        }
+
+        
+
+        .wrapper .form-container{
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .form-container .slide-controls{
+            position: relative;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 30px 0 10px 0;
+            justify-content: space-between;
+            border: 1px solid lightgrey;
+        }
+
+        .slide-controls .slide{
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 48px;
+            cursor: pointer;
+            transition: all 0.6s ease;
+        }
+
+        .slide-controls .signup{
+            color: #000;
+        }
+
+        .slide-controls .slide-tab{
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            left: 0;
+            z-index: 0;
+            border-radius: 5px;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: -webkit-linear-gradient(left, #ddb2e4, #f597c3);
+        }
+
+/* 
+        .slide-controls .login{
+
+        } */
+
+
+        .form-container .form-inner{
+            display: flex;
+            width: 200%;
+        }
+
+        .form-container .form-inner form{
+            width: 50%;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .form-container .form-inner form .field{
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form-inner form .field input{
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding-left: 15px;
+            font-size: 17px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            border-bottom-width: 2px ;
+            transition: all 0.4s ease;
+        }
+
+        .form-inner form .field select{
+            height: 100%;
+            color: rgb(99, 96, 96);
+            width: 100%;
+            outline: none;
+            padding-left: 15px;
+            font-size: 17px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            border-bottom-width: 2px ;
+            transition: all 0.4s ease;
+        }
+
+        .form-inner form .field select:focus{
+            border-color: #fc83bb;
+        }
+
+        .form-inner form .field input:focus{
+            border-color: #fc83bb;
+        }
+
+        .form-inner form .pass-link{
+            margin-top: 5px;
+        }
+
+        .form-inner form .pass-link a,
+        .form-inner form .signup-link a{
+            color: #fa4299;
+            text-decoration: none;
+
+        }
+
+        .form-inner form .field input:focus{
+            border-color: #fc83bb;
+        }
+
+        .form-inner form .signup-link{
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .form-inner form .pass-link a:hover,
+        .form-inner form .signup-link a:hover{
+            text-decoration: underline;
+        }
+
+        form .field input[type="submit"]{
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 0px;
+            border: none;
+            cursor: pointer;
+            background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+        }
+
+        form .field input[type="submit"]:hover{
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 0px;
+            border: none;
+            cursor: pointer;
+            background: -webkit-linear-gradient(left, #e26af5, #fa6fb0);
+        }
+
+
+        input[type="radio"]{
+            display: none;
+        }
+
+        #signup:checked ~ .slide-tab{
+            left: 170px;
+        }
+
+        #signup:checked ~ .signup{
+            color: #fff;
+        }
+
+        #signup:checked ~ .login{
+            color: #000;
+        }
+
+    
+      
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+  -moz-appearance: textfield;
+  }
+
+
+ 
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login" style="font-size: 35px; color: rgb(238, 12, 238);">Welcome Back <i class="far fa-grin-hearts"></i></div>
+            <div class="title signup ml-4" style="font-size: 35px; color: rgb(238, 12, 238);">Do Sign Up <i class="fas fa-arrow-circle-down"></i></div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slider" id="login" checked>
+                <input type="radio" name="slider" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">signup</label>
+                <div class="slide-tab">
+
+                </div>
+            </div>
+            <div class="form-inner">
+                <form action="#" class="login">
+                    <img src="/rolexBank/images/pexels-karolina-grabowska-4968663.jpg" alt="" width="170px" height="170px" style="border-radius: 50%; margin: auto; display: block;" >
+                    <div class="field mt-5">
+                        <input type="email" class="form-control" placeholder="Enter Email" id="email" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" class="form-control" placeholder="Password" id="pass" required>
+                    </div>
+                    <span id="validOrInvalid"></span>
+                    <div class="pass-link">
+                        <a href="#">Forgot password</a>
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="login">
+                    </div>
+                    <div class="signup-link">
+                        Not a member? <a href="#">Sign up now</a>
+                    </div>
+                </form>
+                <form action="#" class="signup">
+                    <div class="field">
+                        <input type="text" class="form-control" id="fname" placeholder="Full Name" name="fname" required>
+                        <span id="span1"></span>
+                    </div>
+                    <div class="field">
+                        <select class="form-control" id="selectValue" name="sellist1" required>
+                            <option value="--choose a bank--" id="opt1" disabled selected>--Choose a bank--</option>
+                          </select>
+                    </div>
+                    <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-info" id="btnClick" type="button" style="background: -webkit-linear-gradient(left, #e26af5, #fa6fb0)!important;">click here</button>
+                          </div>
+                        <input type="text" class="form-control" id="generateAcc" placeholder="generate acc/no" disabled>
+                      </div>
+                    <div class="field">
+                        <input type="number" class="form-control" id="accBal" value="0.00" name="accBal" required>
+                        <span id="span3"></span>
+                    </div>
+                    <div class="field">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" class="form-control" id="pswd" placeholder="Password" name="pswd" required>
+                    </div>
+                    <!-- <div class="pass-link">
+                        <a href="#">Forgot password</a>
+                    </div> -->
+                    <div class="field">
+
+                        <input type="submit" value="signup">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/javascript beginner/bankApp/toastr/toastr.min.js"></script>
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+     
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+     
+     <script>
+       // Your web app's Firebase configuration
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+       const firebaseConfig = {    apiKey: "AIzaSyBmVZsOwB6cwTg-kCK3fwLLZXRYnIaaOT4",
+    authDomain: "fir-auth-64e80.firebaseapp.com",
+    projectId: "fir-auth-64e80",
+    storageBucket: "fir-auth-64e80.appspot.com",
+    messagingSenderId: "365621674659",
+    appId: "1:365621674659:web:7e4db66b2397f769aff516",
+    measurementId: "G-CWJ1P156VE"
+  };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+    //    firebase.analytics();
+    //    const dB = firebase.firestore();
+    const auth = firebase.auth();
+    const database = firebase.database();
+    </script>
+    <script src="/javascript beginner/bankApp/script.js"></script>
+</body>
+</html>

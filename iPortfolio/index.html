@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>RolexWallet</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+    <link rel="stylesheet" href="/personal project/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/javascript beginner/bankApp/toastr/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+  
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #toast-container > .toast-error { background-color: #BD362F; }
+        #toast-container > .toast-success { background-color: #04701f; }
+
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
+  </style>
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v1.5.1
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <div style="position: relative;">
+        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <span style="position: absolute; top: 10px; right: 80px;"><i class="fas fa-circle rounded-circle" style="color: greenyellow;"></i></span>
+      </div>
+        <h1 class="text-light"><a href="index.html" id="activeUserName"></a></h1>
+        <h5 class="text-light text-center"><a href="index.html" id="bankAcc" ></a></h5>
+        <h5 class="text-light text-center"><a href="index.html" id="accBalance" ></a></h5>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <!-- <a href="#" class="google"><i class="fab fa-google-plus"></i></a> -->
+          <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
+        </div>
+      </div>
+      <nav class="nav-menu mt-2">
+        <ul>
+          <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Send Money</span></a></li>
+          <li><a href="#portfolio"><i class="bx bx-book-content"></i>View Transaction</a></li>
+          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in" style="margin-bottom: 200px;">
+      <h2 class="mb-5" style="margin-left: -60px;">Send funds with ease</h2>
+      <h1>RolexWallet</h1>
+      <p class="ml-n5 welcome" style="color: rgb(26, 27, 29);">Welcome </p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>A Short Story!</h2>
+          <p>
+            RolexWllet is the first online wallet for sending funds in Nigeria. We first launched as RolexWallet  as a sending funds-only platform. 
+            <br>
+            We offer only sending funds to our users. we have continued to deliver excellent service to our users, helping them send funds with simplicity, ease and transparency.
+            <br>
+            RolexWallet is on a mission 'to give everyone the power to better manage & send funds with ease', and we intend to be the best at this. From all of us at RolexWallet, thank you</p>
+        </div>
+    <!-- ======= Send Money Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Send Money</h2>
+          <p class="mb-4">RolexWallet is a technology that allows people to send money online (E-transfer). It’s sometimes referred to as a 'mobile wallet'. RolexWallet is a service that stores funds in a secure electronic account, linked to an email account, so you secured
+            <h2>What are the benefits of using RolexWallet</h2>
+            <ol>
+              <li>Direct – users can receive money directly to their account without going through any middlemen.</li>
+              <li>
+                Fast – users can receive and send instantly.
+              </li>
+              <li>
+                Convenient – RolexWallet accounts can be used in as much as you have an active account and mobile friendly
+              </li>
+            </ol>
+            <h2>NOTE</h2>
+            <p>You can only send money to users using this RolexWallet platform alone</p>
+          </p>
+          <button type="button" class="btn btn-success mt-4" data-toggle="modal" data-target="#myModal">Send Money</button>
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header bg-success">
+                  <h4 class="modal-title text-white">Send Money with ease</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form class="sendForm">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Amount ₦</span>
+                          </div>   
+                          <input type="number" class="form-control" placeholder="Amount to send" id="amount1" step="any"  title="Amount" name="amount" required><br>
+                        </div>
+                        <span id="invalid"></span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Bank</span>
+                              </div>
+                              <select name="cars" class="custom-select" required id="customSelect">
+                                <option selected value="--choose a bank--" disabled selected>--Choose a bank--</option>
+                              </select>
+                        </div>  
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Beneficiary Account No</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="0123456789" id="benAcc" title="Account number" required>
+                          </div>
+                          <span id="incorrect"></span>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Beneficiary</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Beneficiary Name" id="benName" disabled required>
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Add a note</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="What is this for" id="note">
+                          </div>
+                      </form>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-danger mr-3" data-dismiss="modal" id="closeFunds">close</button>
+                  <button type="button" class="btn btn-outline-success" id="sendFunds" disabled>Send</button>
+                </div>
+            </div>
+        </div>
+      </div>
+        </div>
+
+     
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Transactions</h2>
+          <p>We have made it possible for our dear esteemed users to have good view and access to their transaction history without having to make any request. <br> Do well to view your transaction history so as to have good overview of every transaction going on</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Transaction History</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-12 col-md-12 col-sm-12 portfolio-item filter-app">
+            <div class="">
+          
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <div class="card text-center">
+      <div class="card-body">
+        <button class="btn btn-success mb-3" id="transacBtn">Click here to view</button>
+        <div id="transDisplay" style="display: none;">
+        <table class="table table-hover table-responsive-md" id="table">
+          <caption style="caption-side: top; font-size: 30px;">Transaction Details</caption>
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Acc/No</th>
+              <th>Debit/Credit</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+   
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" style="margin-top: 300px;">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        <script>document.write(new Date().getFullYear())</script>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        RolexWallet
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/javascript beginner/bankApp/toastr/toastr.min.js"></script>
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+     
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+     
+     <script>
+       // Your web app's Firebase configuration
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+       const firebaseConfig = {
+    apiKey: "AIzaSyBmVZsOwB6cwTg-kCK3fwLLZXRYnIaaOT4",
+    authDomain: "fir-auth-64e80.firebaseapp.com",
+    projectId: "fir-auth-64e80",
+    storageBucket: "fir-auth-64e80.appspot.com",
+    messagingSenderId: "365621674659",
+    appId: "1:365621674659:web:7e4db66b2397f769aff516",
+    measurementId: "G-CWJ1P156VE"
+  };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+    //    firebase.analytics();
+    //    const dB = firebase.firestore();
+    const auth = firebase.auth();
+    const database = firebase.database();
+    </script>
+    <script>
+      let note = document.querySelector("#note");
+      let customSelect = document.querySelector(".custom-select");
+      let btnSend = document.querySelector('.sendForm');
+      const amountToSend = document.querySelector('#amount1');
+      let benAccNo = btnSend.benAcc;
+      let benName = btnSend.benName;
+      let benName_Val = '';
+      let benAcc_Id = '';
+      let benaccountNumber = '';
+      let benAccName = document.querySelector("#benName");
+      benAccNo.addEventListener('keyup', checkBankAccNo);
+      btnSend.amount.addEventListener('keyup', checkAmountToSend)
+      let invalidVal = document.querySelector("#invalid");
+      let accBal = '';
+      let sendQuery = document.getElementById("sendFunds");
+      sendQuery.addEventListener('click', sendFund_Func);
+      let insufficient = "insufficient funds";
+      let newVal = '';
+      let date = new Date();
+      let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      let validDate = `${date.getDate()}-${months[date.getMonth()].substring(0, 3)}-${date.getFullYear()}`;
+      let time = new Intl.DateTimeFormat('default', {
+        hour12: true,
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    }).format(date)
+      // Fetch bank from api
+      let closeSend = document.getElementById("closeFunds");
+      closeSend.addEventListener('click', closeModal)
+      let selectOpt = document.querySelector("select");
+      viewTransaction();
+        const api_url = "https://api.paystack.co/bank";
+        getBankName_api(api_url);
+        let optionBanks = ``;
+        let tbody = document.querySelector("#tbody");
+        let trans_div = document.querySelector("#transDisplay");
+        let trans_Btn = document.querySelector('#transacBtn');
+
+        trans_Btn.addEventListener('click', ()=>{
+          if (trans_div.style.display == "none") {
+              trans_div.style.display = "block";
+            }else{
+              trans_div.style.display = "none";
+            }
+        })
+
+        async function getBankName_api(url) {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    const bankName = data.data;
+                    bankName.forEach(bankname => {
+                    const bank = bankname.name;
+                    const bankCode = bankname.code;
+                    optionBanks += `
+                        <option value="${bank}">${bank}</option>
+                    `
+                });
+                }catch (error) {
+                    console.log(error);
+                }
+                selectOpt.innerHTML += optionBanks;
+            }
+
+      function toastError(errorValue) {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "5000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
+         return toastr["error"](errorValue);
+    }
+
+    function toastSuccess(successValue) {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
+         toastr["success"](successValue);
+    }
+
+    let user_Id; 
+    let activeUser_Name = ''; 
+      // access activeUser profile
+      auth.onAuthStateChanged((loggedUser)=>{
+        if (loggedUser) {
+          let user = auth.currentUser;
+          if (user != null) {
+            user_Id = user.uid;
+          }
+          let fireBase_key = database.ref().child('users/' + user_Id);
+          fireBase_key.on('value', (datasnapshot)=>{
+           newVal = datasnapshot.val().accNo;
+          activeUser_Name = document.getElementById('activeUserName').innerText = datasnapshot.val().fullName;
+          accBal =  document.querySelector('#accBalance').innerText = datasnapshot.val().accountBalance;
+           document.querySelector('.twitter').setAttribute('href', datasnapshot.val().userTw);
+           document.querySelector('.facebook').setAttribute('href', datasnapshot.val().userFb);
+           document.querySelector('#bankAcc').innerText = datasnapshot.val().userBank;
+           document.querySelector('.welcome').innerText += ` ${datasnapshot.val().fullName}`;
+          })
+        }
+      });
+
+            let accBalance_Format = '';
+            let send_Funds = '';
+      function checkAmountToSend() {
+        send_Funds = btnSend.amount.value.replace(/[^0-9\.-]+/g,"");
+        accBalance_Format = accBal.replace(/[^0-9\.-]+/g,"");
+            if(Number(send_Funds) > Number(accBalance_Format)) {
+              invalidVal.textContent = "insufficient funds";
+              invalidVal.innerHTML += ` <i class="fas fa-times text-danger"></i>`;
+               toastError('Insufficient funds');
+            }else if (Number(send_Funds) < Number(accBalance_Format)) {
+              invalidVal.textContent =`Current balance: ${new Intl.NumberFormat('en-NG', {
+                              style:"currency",
+                              currency: "NGN"
+                      }).format(parseInt(Number(send_Funds) - Number(accBalance_Format)))}`;
+                  return true;
+           }
+      }
+
+      let receiver_BankName = '';
+      let receiverPrevAcc = '';
+      function checkBankAccNo() {
+        let receiver = false;
+        let firebaseVal = database.ref("users/");
+        firebaseVal.on('value', (data)=>{
+          let fBData = data.val();
+          let keys = Object.keys(fBData);
+          if (btnSend.benAcc.value.length == 10) {
+          Object.values(fBData).forEach((data, index)=>{
+                if (btnSend.benAcc.value == data.accNo && btnSend.benAcc.value != newVal) {
+                    receiver = true;
+                    benName_Val = data.fullName;
+                    benaccountNumber = data.accNo;
+                    benAcc_Id = keys[index];
+                    receiver_BankName = data.userBank;
+                    receiverPrevAcc = data.accountBalance;
+                }
+           
+          })
+              let amount_Check = checkAmountToSend();
+                  if (receiver && amount_Check && selectOpt.value == receiver_BankName) {
+                    benAccName.disabled = false;
+                    benAccName.value = benName_Val;
+                    benAccName.style.color = "green";
+                    benAccName.disabled = true;
+                    sendQuery.disabled = false;
+                  }else{
+                    benAccName.value = '';
+                    sendQuery.disabled = true;
+                  return  toastError('invalid transaction details');
+              }
+            } 
+        })
+      }
+     
+      function sendFund_Func() {
+          if (invalidVal.textContent.includes(insufficient) || selectOpt.value == '--choose a bank--' || benAccName.value == '') {
+            return toastError('Invalid details');
+          }else{
+            toastSuccess('transaction details valid');
+            sendQuery.setAttribute('data-dismiss', 'modal');
+            const newAcc_Bal = new Intl.NumberFormat('en-NG', {
+                            style:"currency",
+                            currency: "NGN"
+                    }).format((Number(accBalance_Format) - Number(send_Funds))); 
+            database.ref('users/' + user_Id).update({
+              accountBalance: newAcc_Bal,
+            });
+            debitTransactionHistory();
+            // Generate credit account balance for receiver
+             const newAcc_CreditBal = new Intl.NumberFormat('en-NG', {
+                            style:"currency",
+                            currency: "NGN"
+                    }).format(Number(send_Funds) + Number(receiverPrevAcc.replace(/[^0-9\.-]+/g,"")));
+              database.ref('users/' + benAcc_Id).update({
+                    accountBalance: newAcc_CreditBal,
+              }); 
+              creditTransaction_History();
+              viewTransaction();
+              setTimeout(()=>{
+                toastError('You have been debited');
+              }, 3000);
+              setTimeout(()=>{
+                location.reload();
+              }, 6000);
+          }
+      }
+      
+      let moneyTransferred = '';
+      function debitTransactionHistory() {
+        moneyTransferred = new Intl.NumberFormat('en-NG', {
+                            style:"currency",
+                            currency: "NGN"
+                    }).format(Number(send_Funds));
+        let debit_Trans = {
+              userId: user_Id,
+              Name: benName_Val,
+              AccNum: benaccountNumber,
+              MoneySent: moneyTransferred,
+              Date: validDate,
+              trans_Type: 'debit',
+              Time: time,
+        }
+          database.ref().child('transactionHistory/').push(debit_Trans);
+      }
+
+      function creditTransaction_History(){
+          console.log(newVal);
+          let credit_Trans = {
+              userId: benAcc_Id,
+              Name: activeUser_Name,
+              AccNum: newVal,
+              MoneySent: moneyTransferred,
+              Date: validDate,
+              trans_Type: 'credit',
+              Time: time,
+          }
+          database.ref().child('transactionHistory/').push(credit_Trans);
+      }
+
+      function closeModal() {
+      amountToSend.value = "";
+      invalidVal.innerText = "";
+      benAccNo.value = "";
+      benAccName.value = "";
+      customSelect.value = "--choose a bank--";
+      note.value = "";
+    }
+
+      function viewTransaction() {
+         let newRow = ``;
+         let eachId = '';
+         database.ref().child('transactionHistory').on('value', (data)=>{
+               if (data.exists()) {
+                  let data_History = Object.values(data.val());
+                  let transUniq = '';
+                let activeUser_Transc = data_History.filter(transaction => transaction.userId === user_Id);
+                  if (activeUser_Transc.length) {
+                    activeUser_Transc.forEach((transac, index)=>{
+                      newRow +=  `
+              <tr>
+                <td>${index + 1}</td>
+                <td>${transac.Name}</td>
+                <td>${transac.AccNum}</td>
+                <td>${transac.trans_Type}</td>
+                <td>${transac.MoneySent}</td>
+                <td>${transac.Date}</td>
+                <td>${transac.Time}</td>
+              <tr>
+            ` 
+            tbody.innerHTML = newRow;
+                    })
+                  }else{
+                    let table = document.querySelector("#table").remove();
+                    trans_div.innerHTML += `
+                        <p>No transaction made so far!!!</p>
+                    `
+                  }
+               }else{
+                 toastError("transaction history is null");
+               }
+           }) 
+      }
+    </script>
+</body>
+</html>
